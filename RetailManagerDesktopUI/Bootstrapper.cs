@@ -8,6 +8,8 @@ using System.Windows.Controls;
 using Caliburn.Micro;
 using RetailManagerDesktopUI.Helpers;
 using RetailManagerDesktopUI.ViewModels;
+using RetailManagerDesktopUILibrary.Api;
+using RetailManagerDesktopUILibrary.Models;
 
 namespace RetailManagerDesktopUI
 {
@@ -30,6 +32,7 @@ namespace RetailManagerDesktopUI
             _container
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<IEventAggregator, EventAggregator>()
+                .Singleton<ILoggedInUserModel, LoggedInUserModel>()
                 .Singleton<IAPIHelper, APIHelper>();
 
             GetType().Assembly.GetTypes()

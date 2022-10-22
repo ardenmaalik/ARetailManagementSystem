@@ -1,5 +1,5 @@
 ﻿using Caliburn.Micro;
-using RetailManagerDesktopUI.Helpers;
+using RetailManagerDesktopUILibrary.Api;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -87,6 +87,9 @@ namespace RetailManagerDesktopUI.ViewModels
             {
                 ErrorMessage = "";
                 var result = await _apiHelper.Authenticate(UserName, Password);
+
+                // Capture more info about the user
+                await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
             }
             catch (Exception ex)
             {
